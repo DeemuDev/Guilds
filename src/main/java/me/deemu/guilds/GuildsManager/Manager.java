@@ -149,6 +149,7 @@ public class Manager {
 
     public static void refreshPlayerData(ProxiedPlayer player) {
         // here were just refreshing their data when they join
+
         Guilds plugin = Guilds.getPlugin();
         if (plugin.getData().getBoolean("data.players." + player.getUniqueId().toString() + "in-guild")) {
             Guilds.guild.put(player.getUniqueId(), plugin.getData().getString("data.players." + player.getUniqueId().toString() + ".guild-name"));
@@ -159,6 +160,8 @@ public class Manager {
 
     public static void sendGuildChatMessage(ProxiedPlayer fromPlayer, String guild, String message){
         // Simple method, easy to understand.
+        // More comments added soon.
+
         Guilds plugin = Guilds.getPlugin();
         for(String uuids : plugin.getData().getStringList("data.guilds." + guild + ".members")){
             ProxyServer.getInstance().getPlayer(UUID.fromString(uuids)).sendMessage(new TextComponent("§2Guild > §f" + fromPlayer.getDisplayName() + "§f:" + message));
